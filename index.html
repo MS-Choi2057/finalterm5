@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메이플스토리_신창섭</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbit&family=Song+Myung&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbit', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+            word-break: keep-all;
+        }
+
+        .header-section {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(45deg, #1a1a1a, #333);
+        }
+
+        .meme-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            height: 100%;
+            gap: 0;
+        }
+
+        .meme-item {
+            position: relative;
+            overflow: hidden;
+            background: #222;
+        }
+
+        .meme-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 1;
+            background-repeat: no-repeat;
+        }
+
+        .meme-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+        }
+
+        .meme-text {
+            font-size: 24px;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            margin: 5px 0;
+        }
+
+        .red-banner {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            box-shadow: 0 4px 8px rgba(255,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+        }   
+
+        .scroll-container {
+            display: flex;
+            white-space: nowrap;
+            animation: scroll 50s linear infinite;
+        }
+
+        .scroll-text {
+            display: flex;
+            justify-content: space-between;
+            min-width: 100%;
+            padding: 0 20px;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .banner-text {
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        .korean-text {
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        .content-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .content-column h2 {
+            font-size: 30px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .content-column p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #ccc;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .tweet-mockup {
+            background: #15202b;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #38444d;
+        }
+
+        .tweet-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .tweet-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #1da1f2;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+
+        .tweet-info {
+            flex-grow: 1;
+        }
+
+        .tweet-username {
+            font-weight: bold;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .tweet-handle {
+            color: #8899a6;
+            font-size: 12px;
+        }
+
+        .tweet-content {
+            color: #fff;
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .tweet-stats {
+            display: flex;
+            gap: 20px;
+            color: #8899a6;
+            font-size: 12px;
+        }
+
+        .mansion-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .highlight {
+            color: #ff0000;
+            font-weight: 400;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #ff0000; }
+            50% { text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000; }
+            100% { text-shadow: 0 0 5px #ff0000; }
+        }
+
+        .banner-text {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .circle-button {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            border: none;
+            cursor: pointer;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
+        }
+
+        .circle-button a {
+            text-align: center; text-decoration: none; color: white;
+        }
+
+        .circle-button a:hover {
+            text-align: center; text-decoration: none; color: #ff0000;
+        }
+
+        .circle-button:hover {
+            background: #ffffff;
+            color: #ff0000;
+            transform: translateY(-50%) scale(1.2);
+            box-shadow: 10px 10px 10px rgba(255, 0, 0, 0.5);
+        }
+
+        .circle-button.left {
+            left: -80px;
+        }
+
+        .circle-button.right {
+            right: -80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-section">
+        <div class="meme-grid">
+            <div class="meme-item">
+                <div style="background: url(gif5.gif); height: 100%; display: flex; align-items: center; justify-content: center;background-size: cover;">
+                    <div class="meme-overlay">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="meme-item">
+                <div style="background: url(meme7.jpg); height: 100%; position: relative; background-size: cover;">
+                    <div class="meme-overlay">
+
+                    </div>
+                </div>
+            </div>
+            <div class="meme-item">
+                <div style="background: url(gif6.gif); height: 100%; position: relative; background-size: cover;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="red-banner">
+        <div class="scroll-container">
+            <div class="scroll-text">
+                <div class="banner-text"> Jung Sanghwa &nbsp;&nbsp; 메이플스토리 신창섭 &nbsp;&nbsp; Jung Sanghwa &nbsp;&nbsp; 메이플스토리 신창섭 &nbsp;&nbsp; Jung Sanghwa &nbsp;&nbsp; 메이플스토리 신창섭 &nbsp;&nbsp; Jung Sanghwa &nbsp;&nbsp; 메이플스토리 신창섭 &nbsp;&nbsp; Jung Sanghwa &nbsp;&nbsp; 메이플스토리 신창섭 &nbsp;&nbsp; Jung Sanghwa &nbsp;&nbsp; 메이플스토리 신창섭 </div>
+            </div>  
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="content-column">
+            <h2>Definition</h2>
+            <p>메이플스토리의 ‘신창섭’ 밈은 2024년을 전후로 각종 커뮤니티에서 유행하기 시작했습니다. <span class="highlight">디렉터 김창섭의 이름에 ‘신(神)’을 붙여 ‘신창섭’이라는 별명이 만들어졌으며, 이는 확률 조작 논란을 무마하기 위한 메이플스토리의 운영 정책을 반어적으로 찬양하는 데서 비롯되었습니다. </span> 이후 AI 노래 등 다양한 패러디 콘텐츠가 등장하면서, 게임 커뮤니티를 넘어 일반인들에게까지 널리 퍼졌습니다.</p>
+           
+        </div>
+
+        <div class="content-column">
+            <h2>Episode</h2>
+                        <p><span class="highlight"> 넥슨의 전반적인 확률형 아이템 논란과 맞물려 '큐브' 등 핵심 유료 아이템의 확률 조작 의혹이 불거지기 시작했습니다.</span> 유저들은 운영진에게 투명한 정보 공개와 소통을 요구했지만, 넥슨과 메이플스토리 운영진은 이에 대해 소극적인 태도로 일관했습니다. 이러한 운영 방식에 대한 불만이 누적되던 와중, 당시 운영팀장이었던 김창섭의 이름이 유저들 사이에서 언급되기 시작했습니다. </p>
+        </div>
+
+        <a href="https://ms-choi2057.github.io/finalterm/"><button class="circle-button left">◀</button></a>
+        <a href="https://ms-choi2057.github.io/finalterm4/"><button class="circle-button right">▶</button></a>
+    </div>
+</body>
+</html>
